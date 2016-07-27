@@ -1,0 +1,212 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.6
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 29-11-2013 a las 17:21:12
+-- Versión del servidor: 5.5.33
+-- Versión de PHP: 5.5.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de datos: `OCIE`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `datos_usua`
+--
+
+CREATE TABLE `datos_usua` (
+  `id` bigint(12) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `nom_usua` varchar(16) NOT NULL,
+  `tel` bigint(12) NOT NULL,
+  `cel` bigint(12) NOT NULL,
+  `tipo_ident` smallint(2) NOT NULL,
+  `identifica` bigint(14) NOT NULL,
+  `institucion` text NOT NULL,
+  `skype` varchar(30) NOT NULL,
+  `tweeter` varchar(20) NOT NULL,
+  `nivel_institu` smallint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `datos_usua`
+--
+
+INSERT INTO `datos_usua` (`id`, `nombre`, `correo`, `nom_usua`, `tel`, `cel`, `tipo_ident`, `identifica`, `institucion`, `skype`, `tweeter`, `nivel_institu`) VALUES
+(1, 'oscar boude', 'oscarbf@unisabana.edu.co', 'oscarbf', 8611111, 310101010, 1, 80505253, 'usabana', 'oboude', 'oboude', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `documenta`
+--
+
+CREATE TABLE `documenta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_usua` varchar(12) NOT NULL,
+  `titulo` text NOT NULL,
+  `formacion` int(11) NOT NULL,
+  `area_dis` text NOT NULL,
+  `enfoque` int(11) NOT NULL,
+  `tic` text NOT NULL,
+  `func_tic` text NOT NULL,
+  `poblacion` text NOT NULL,
+  `investiga` int(11) NOT NULL,
+  `estudio` int(11) NOT NULL,
+  `diseno` int(11) NOT NULL,
+  `muestra` text NOT NULL,
+  `instrumento` text NOT NULL,
+  `resultados` text NOT NULL,
+  `conclusiones` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `documenta`
+--
+
+INSERT INTO `documenta` (`id`, `nom_usua`, `titulo`, `formacion`, `area_dis`, `enfoque`, `tic`, `func_tic`, `poblacion`, `investiga`, `estudio`, `diseno`, `muestra`, `instrumento`, `resultados`, `conclusiones`) VALUES
+(1, 'oscarbf', 'primero', 1, 'area disciplinar', 1, 'TIC', 'func_tic', 'poblacion', 1, 1, 1, 'muestra', 'Entrevistas estructuradas;Entrevistas semi-estructuradas;Observaciones participativas;Observaciones no participativas', 'resultados', 'conclusiones');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado_proyectos`
+--
+
+CREATE TABLE `estado_proyectos` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `titulo` text NOT NULL,
+  `objetivo` text NOT NULL,
+  `inicio` date NOT NULL,
+  `fin` date NOT NULL,
+  `estado` int(11) NOT NULL,
+  `inves_forma` varchar(80) NOT NULL,
+  `inves_respo` varchar(80) NOT NULL,
+  `resumen` text NOT NULL,
+  `nom_usua` varchar(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `estado_proyectos`
+--
+
+INSERT INTO `estado_proyectos` (`id`, `titulo`, `objetivo`, `inicio`, `fin`, `estado`, `inves_forma`, `inves_respo`, `resumen`, `nom_usua`) VALUES
+(1, 'primero   ', 'adsfasdfadsfads   ', '2013-11-04', '2013-11-21', 1, 'dsfgdsfgdsf', 'asdfasfsdf', 'resumen reseumensito', 'oscarbf'),
+(2, 'segundo', 'asdfsdfsdf', '2013-11-03', '2013-11-17', 2, 'xvxzcv', 'xzcvxzcv', 'cvxzxzvxc', 'oscarbf'),
+(3, 'dafasdfadsfasd ', 'adsfasdfadsfads ', '2013-11-04', '2013-11-21', 5, 'pedro fernendez', 'Erika Duque', 'este es el resumen', 'eduque');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `identifica`
+--
+
+CREATE TABLE `identifica` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nom_usua` varchar(12) NOT NULL,
+  `tproyecto` int(6) NOT NULL,
+  `area` int(6) NOT NULL,
+  `ambiente` int(6) NOT NULL,
+  `taprendizaje` int(6) NOT NULL,
+  `tecnolo` int(6) NOT NULL,
+  `titulo` text NOT NULL,
+  `proyecto` text NOT NULL,
+  `keywords` text NOT NULL,
+  `resumen` text NOT NULL,
+  `autores` text NOT NULL,
+  `implementacion` date NOT NULL,
+  `publicacion` date NOT NULL,
+  `revista` varchar(60) NOT NULL,
+  `ubicacion` text NOT NULL,
+  `estado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `identifica`
+--
+
+INSERT INTO `identifica` (`id`, `nom_usua`, `tproyecto`, `area`, `ambiente`, `taprendizaje`, `tecnolo`, `titulo`, `proyecto`, `keywords`, `resumen`, `autores`, `implementacion`, `publicacion`, `revista`, `ubicacion`, `estado`) VALUES
+(1, 'oscarbf', 2, 3, 3, 6, 9, 'primero', 'proyecto uno', 'uno, dos, tres, cuatro', 'este es el gran resumen jejejej', 'hennig, manzulli, pipin, tomatin', '2012-11-18', '2012-12-13', 'revistica', 'asfasdfasfsdf', 1),
+(2, 'oscarbf', 2, 3, 2, 9, 6, 'segundo', 'proyecto dos', 'uno, dos, tres, cuatro', 'este es el gran resumen jejejej', 'hennig, manzulli, pipin, tomatin', '2012-11-18', '2012-12-13', 'revistica 2', 'http://localhost:8888/ocie/tutor.php', 0),
+(3, 'oscarbf', 2, 3, 2, 9, 6, 'tercero', 'proyecto tres', 'uno, dos, tres, cuatro', 'este es el gran resumen jejejej asflajksdf ladsfjads del tercero', 'hennig, manzulli, pipin, tomatin', '2012-11-18', '2012-12-13', 'revistica 3', 'http://localhost:8888/ocie/tutosr.php', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `redes_acade`
+--
+
+CREATE TABLE `redes_acade` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nom_usua` varchar(16) NOT NULL,
+  `ribiecol` int(2) NOT NULL,
+  `academia` int(2) NOT NULL,
+  `researchgate` int(2) NOT NULL,
+  `redipe` int(2) NOT NULL,
+  `ried` int(2) NOT NULL,
+  `mendeley` int(2) NOT NULL,
+  `redolac` int(11) NOT NULL,
+  `otra` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `redes_acade`
+--
+
+INSERT INTO `redes_acade` (`id`, `nom_usua`, `ribiecol`, `academia`, `researchgate`, `redipe`, `ried`, `mendeley`, `redolac`, `otra`) VALUES
+(1, 'oscarbf', 1, 0, 0, 1, 0, 0, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_institu`
+--
+
+CREATE TABLE `tipo_institu` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nom_usua` varchar(16) NOT NULL,
+  `tipo_institucion` int(3) NOT NULL,
+  `institucion` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `tipo_institu`
+--
+
+INSERT INTO `tipo_institu` (`id`, `nom_usua`, `tipo_institucion`, `institucion`) VALUES
+(1, 'oscarbf', 2, 'usabana');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_usua`
+--
+
+CREATE TABLE `tipo_usua` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nom_usua` varchar(16) NOT NULL,
+  `contra` text NOT NULL,
+  `tipo_usua` int(3) NOT NULL,
+  `estado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `tipo_usua`
+--
+
+INSERT INTO `tipo_usua` (`id`, `nom_usua`, `contra`, `tipo_usua`, `estado`) VALUES
+(1, 'oscarbf', 'figue', 4, 0);

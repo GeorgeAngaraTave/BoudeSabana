@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Resgistro al sistema</title>
+<style type="text/css">
+#form1 table tr #titulo {
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+	font-size: 14pt;
+}
+#form1 table {
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: justify;
+	font-size: 12pt;
+}
+
+
+#form1 table tr #envio {
+	text-align: center;
+}
+
+body {
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+</style>
+<script type="text/javascript">
+function MM_validateForm() { //v4.0
+  if (document.getElementById){
+    var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+    for (i=0; i<(args.length-2); i+=3) { test=args[i+2]; val=document.getElementById(args[i]);
+      if (val) { nm=val.name; if ((val=val.value)!="") {
+        if (test.indexOf('isEmail')!=-1) { p=val.indexOf('@');
+          if (p<1 || p==(val.length-1)) errors+='- '+nm+' must contain an e-mail address.\n';
+        } else if (test!='R') { num = parseFloat(val);
+          if (isNaN(val)) errors+='- '+nm+' must contain a number.\n';
+          if (test.indexOf('inRange') != -1) { p=test.indexOf(':');
+            min=test.substring(8,p); max=test.substring(p+1);
+            if (num<min || max<num) errors+='- '+nm+' must contain a number between '+min+' and '+max+'.\n';
+      } } } else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n'; }
+    } if (errors) alert('The following error(s) occurred:\n'+errors);
+    document.MM_returnValue = (errors == '');
+} }
+</script>
+</head>
+
+<body>
+<form action="SGC/registro.php" method="post" name="form1" target="ppal" id="form1">
+  <table width="100%" border="0">
+    <tr>
+      <td colspan="3" id="titulo"><p>Solicitud de registro al Observatorio Colombiano de Informática Educativa<br />
+      </p></td>
+    </tr>
+    <tr>
+      <td colspan="3">Por favor complete los datos que le son solicitados a continuación, especifique el tipo de usuario que desea solicitar (Investigador, Colaborador, Institución)</td>
+    </tr>
+    <tr>
+      <td width="31%">&nbsp;</td>
+      <td width="68%">&nbsp;</td>
+      <td width="1%" rowspan="19">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Nombre Completo:</td>
+      <td><label for="nombre"></label>
+      <input name="nombre" type="text" id="nombre" onchange="MM_validateForm('nombre','','R');return document.MM_returnValue" size="40" maxlength="60" /></td>
+    </tr>
+    <tr>
+      <td>Correo electrónico:</td>
+      <td><label for="correo"></label>
+      <input name="correo" type="text" id="correo" size="50" maxlength="100" /></td>
+    </tr>
+    <tr>
+      <td>Tipo de participación:</td>
+      <td><p>
+        <label>
+          <input type="radio" name="tipo_usuario" value="1" id="tipo_usuario_0" />
+          Investigador</label>
+        <br />
+        <label>
+          <input type="radio" name="tipo_usuario" value="2" id="tipo_usuario_1" />
+          Colaborador</label>
+        <br />
+        <label>
+          <input type="radio" name="tipo_usuario" value="3" id="tipo_usuario_2" />
+          Investigador en formación</label><br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Documento de Identificación</td>
+      <td><p>
+        <label>
+          <input type="radio" name="tipo_iden" value="1" id="tipo_iden_0" />
+          CC</label>
+        <br />
+        <label>
+          <input type="radio" name="tipo_iden" value="2" id="tipo_iden_1" />
+          Ced Extra</label>
+        </p>
+        <p>Número: 
+          <label for="ced_num"></label>
+          <input name="ced_num" type="text" id="ced_num" size="20" maxlength="20" />
+          <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Telefóno de contacto</td>
+      <td><label for="telefono"></label>
+      <input name="telefono" type="text" id="telefono" size="20" maxlength="20" /></td>
+    </tr>
+    <tr>
+      <td>Telefóno Celular:</td>
+      <td><input name="celular" type="text" id="celular" size="20" maxlength="20" /></td>
+    </tr>
+    <tr>
+      <td>Nombre de usuario:</td>
+      <td><label for="nom_usua"></label>
+      <input name="nom_usua" type="text" id="nom_usua" size="20" /></td>
+    </tr>
+    <tr>
+      <td>Contraseña:</td>
+      <td><label for="contra"></label>
+      <input name="contra" type="password" id="contra" size="16" maxlength="16" /></td>
+    </tr>
+    <tr>
+      <td>Repetir Contraseña:</td>
+      <td><input name="contra2" type="password" id="contra2" size="16" maxlength="16" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Institución donde labora:</td>
+      <td><p>
+        <label for="institucion"></label>
+        <input name="institucion" type="text" id="institucion" size="60" maxlength="100" />
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td><p>Tipo de institución:</p>
+      <p>&nbsp;</p></td>
+      <td><p>
+        <label>
+          <input type="radio" name="tipo_insti" value="1" id="tipo_insti_0" />
+          Pública</label>
+        <br />
+        <label>
+          <input type="radio" name="tipo_insti" value="2" id="tipo_insti_1" />
+          Privada</label>
+        <br />
+        <label>
+          <input type="radio" name="tipo_insti" value="3" id="tipo_insti_2" />
+          Mixta</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Nivel de formación donde Labora</td>
+      <td><p>
+        <label>
+          <input type="checkbox" name="nivel_labora" value="1" id="nivel_labora_0" />
+          Pre escolar</label>
+        <br />
+        <label>
+          <input type="checkbox" name="nivel_labora" value="2" id="nivel_labora_1" />
+          Primaria</label>
+        <br />
+        <label>
+          <input type="checkbox" name="nivel_labora" value="3" id="nivel_labora_2" />
+          Secundaria</label>
+        <br />
+        <label>
+          <input type="checkbox" name="nivel_labora" value="4" id="nivel_labora_3" />
+          Superior</label>
+        <br />
+        <label>
+          <input type="checkbox" name="nivel_labora" value="5" id="nivel_labora_4" />
+          Técnica</label>
+        <br />
+        <label>
+          <input type="checkbox" name="nivel_labora" value="6" id="nivel_labora_5" />
+          No aplica</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Usuario Skype:</td>
+      <td><label for="skype"></label>
+      <input name="skype" type="text" id="skype" size="30" /></td>
+    </tr>
+    <tr>
+      <td>Usuario Tweeter:</td>
+      <td><label for="tweeter"></label>
+      <input name="tweeter" type="text" id="tweeter" size="20" /></td>
+    </tr>
+    <tr>
+      <td>Redes academicas a la que pertenece:</td>
+      <td><p>
+        <label>
+          <input type="checkbox" name="red[]" value="1" id="CheckboxGroup1_0" />
+          Ribie-Col</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="2" id="CheckboxGroup1_1" />
+          REDIPE</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="3" id="CheckboxGroup1_2" />
+          REDOLAC</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="4" id="CheckboxGroup1_3" />
+          Academia</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="5" id="CheckboxGroup1_4" />
+          Researchgate</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="6" id="CheckboxGroup1_5" />
+          Mendeley</label>
+        <br />
+        <label>
+          <input type="checkbox" name="red[]" value="7" id="CheckboxGroup1_6" />
+          RIED</label>
+        <br />
+        <label>
+          <input name="red[]" type="checkbox" id="CheckboxGroup1_7" value="8" />
+          otra</label>
+        </p>
+        <p>Cual? 
+          <label for="otra_Red"></label>
+          <input name="otra_Red" type="text" id="otra_Red" size="25" />
+          <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="enviar" id="enviar" value="Solicitar Registro" />
+      <input type="reset" name="Reset" id="button" value="Reiniciar" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
